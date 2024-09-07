@@ -4,7 +4,7 @@
 npm i ngx-caco-image-splitter
 
 ## Usage
-"<div NgxImageSplitter [imgSrc1]="imgSrc1" [imgSrc2]="imgSrc2"></div>"
+<code> <div NgxImageSplitter [imgSrc1]="imgSrc1" [imgSrc2]="imgSrc2"></div>" </code>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
 
