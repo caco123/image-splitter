@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgxImageSplitterDirective } from 'ngx-image-splitter';
+import { NgxImageSplitterDirective } from 'ngx-caco-image-splitter';
 @Component({
   selector: 'app-root',
   standalone: true,
