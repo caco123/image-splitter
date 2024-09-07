@@ -5,6 +5,7 @@ npm i ngx-caco-image-splitter
 
 ## Usage
 <code><div NgxImageSplitter [imgSrc1]="imgSrc1" [imgSrc2]="imgSrc2"></div></code>
+
 ![alt text](https://github.com/caco123/image-splitter/blob/master/projects/test/public/img-splitter-caco.png?raw=true)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
