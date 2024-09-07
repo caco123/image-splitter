@@ -184,32 +184,6 @@ export class NgxImageSplitterDirective implements OnInit {
     this.renderer.setStyle(this.capa, 'width', '50%');
   }
 
-  /* 
-
-#directive {
-  background-image: url("../../../assets/imgs/edificio-1.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top;
-  transform: scale(1);
-  overflow: hidden;
-  height: 100vh;
-
-  scroll-snap-align: end;
-  scroll-snap-stop: always;
-  img {
-    height: 100%;
-  }
-}
-
-ul > li {
-  font-size: 1.5rem;
-  color: white;
-  margin: 1rem;
-}
-
-*/
-
   private setParentBoxStyles() {
     this.renderer.setStyle(
       this.resizableHtmlElement.nativeElement,

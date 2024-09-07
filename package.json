@@ -1,6 +1,6 @@
 {
   "name": "ngx-image-splitter",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": false,
+  "private": true,
   "dependencies": {
     "@angular/animations": "^18.0.0",
     "@angular/common": "^18.0.0",
@@ -18,7 +18,6 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
-    "ngx-image-splitter": "^0.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
