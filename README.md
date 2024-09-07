@@ -1,7 +1,7 @@
 # ImageSplitter
 
 ## Instalation
-npm i ngx-caco-image-splitter
+<code>npm i ngx-caco-image-splitter</code>
 
 ## Usage
 <code><div NgxImageSplitter [imgSrc1]="imgSrc1" [imgSrc2]="imgSrc2"></div></code>
