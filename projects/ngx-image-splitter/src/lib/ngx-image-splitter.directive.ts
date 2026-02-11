@@ -57,7 +57,8 @@ export class NgxImageSplitterDirective implements OnInit {
     this.renderer.setStyle(this.img, 'position', 'absolute');
     this.renderer.setStyle(this.img, 'left', '0');
     this.renderer.setStyle(this.img, 'top', '0');
-    this.renderer.setStyle(this.img, 'width', '100vw');
+    this.renderer.setStyle(this.img, 'height', '100vh');
+    this.renderer.setStyle(this.img, 'object-fit', 'cover');
     this.renderer.setAttribute(this.img, 'src', this.imgSrc1);
     this.renderer.setAttribute(this.img, 'title', '');
   }
