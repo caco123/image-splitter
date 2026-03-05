@@ -20,5 +20,5 @@ import { NgxImageSplitterDirective } from 'ngx-image-splitter';
   `,
 })
 export class AppComponent {
-  title = 'test';
+  title = 'Image Splitter';
 }
