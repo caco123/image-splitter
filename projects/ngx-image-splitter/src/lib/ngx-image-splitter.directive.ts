@@ -44,20 +44,23 @@ export class NgxImageSplitterDirective implements OnInit {
     this.appendsElements();
   }
 
+  @HostListener('window:resize')
+  onResize() {
+    this.renderer.setStyle(this.img, 'width', this.resizableHtmlElement.nativeElement.clientWidth + 'px');
+  }
+
   private appendsElements(): void {
     this.renderer.appendChild(this.capa, this.img);
     this.renderer.appendChild(this.capa, this.btnResize);
-    this.renderer.appendChild(
-      this.resizableHtmlElement.nativeElement,
-      this.capa
-    );
+    this.renderer.appendChild(this.resizableHtmlElement.nativeElement, this.capa);
   }
 
   private setImgStyles() {
     this.renderer.setStyle(this.img, 'position', 'absolute');
     this.renderer.setStyle(this.img, 'left', '0');
     this.renderer.setStyle(this.img, 'top', '0');
-    this.renderer.setStyle(this.img, 'height', '100vh');
+    this.renderer.setStyle(this.img, 'height', '100%');
+    this.renderer.setStyle(this.img, 'width', this.resizableHtmlElement.nativeElement.clientWidth + 'px');
     this.renderer.setStyle(this.img, 'object-fit', 'cover');
     this.renderer.setAttribute(this.img, 'src', this.imgSrc1);
     this.renderer.setAttribute(this.img, 'title', '');
