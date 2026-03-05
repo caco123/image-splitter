@@ -92,31 +92,13 @@ export class NgxImageSplitterDirective implements OnInit {
   }
 
   private setSectionEventListeners() {
-    this.renderer.listen(
-      this.resizableHtmlElement.nativeElement,
-      'mousedown',
-      (event: MouseEvent) => this.mouseDown(event)
-    );
-
-    this.renderer.listen(
-      this.resizableHtmlElement.nativeElement,
-      'mouseup',
-      () => this.mouseUp()
-    );
+    this.renderer.listen(this.resizableHtmlElement.nativeElement, 'mousedown', (event: MouseEvent) => this.mouseDown(event));
+    this.renderer.listen(this.resizableHtmlElement.nativeElement, 'mouseup', () => this.mouseUp());
   }
 
   private setBtnEventListeners() {
-    this.renderer.listen(
-      this.resizableHtmlElement.nativeElement,
-      'mousedown',
-      () => this.btnMouseDown()
-    );
-
-    this.renderer.listen(
-      this.resizableHtmlElement.nativeElement,
-      'mouseup',
-      () => this.mouseUp()
-    );
+    this.renderer.listen(this.resizableHtmlElement.nativeElement, 'mousedown', () => this.btnMouseDown());
+    this.renderer.listen(this.resizableHtmlElement.nativeElement, 'mouseup', () => this.mouseUp());
   }
 
   @HostListener('mousemove', ['$event'])
@@ -189,40 +171,15 @@ export class NgxImageSplitterDirective implements OnInit {
   }
 
   private setParentBoxStyles() {
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'background-image',
-      `url('${this.imgSrc2}')`
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'background-repeat',
-      'no-repeat'
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'background-size',
-      'cover'
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'background-position',
-      'top'
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'transform',
-      'scale(1)'
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'overflow',
-      'hidden'
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'height',
-      '100vh'
-    );
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'background-image', `url('${this.imgSrc2}')`);
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'background-repeat', 'no-repeat');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'background-size', 'cover');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'background-position', 'top');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'transform', 'scale(1)');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'overflow', 'hidden');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'height', '100%');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'min-height', '900px');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'width', '100%');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'position', 'relative');
   }
 }

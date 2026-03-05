@@ -1,26 +1,36 @@
-name: Publish Package
+name: Publish Angular Library
 
 on:
   push:
     branches:
       - feature/deploy-npm
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   publish:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    permissions:
+      contents: read
+      id-token: write
 
-      - uses: actions/setup-node@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '22.12.0'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: |
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build library
+        run: npm run build --if-present
+
+      - name: Publish to npm
+        run: |
           cd dist/ngx-image-splitter
-          npm publish
+          npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
