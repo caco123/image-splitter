@@ -44,20 +44,23 @@ export class NgxImageSplitterDirective implements OnInit {
     this.appendsElements();
   }
 
+  @HostListener('window:resize')
+  onResize() {
+    this.renderer.setStyle(this.img, 'width', this.resizableHtmlElement.nativeElement.clientWidth + 'px');
+  }
+
   private appendsElements(): void {
     this.renderer.appendChild(this.capa, this.img);
     this.renderer.appendChild(this.capa, this.btnResize);
-    this.renderer.appendChild(
-      this.resizableHtmlElement.nativeElement,
-      this.capa
-    );
+    this.renderer.appendChild(this.resizableHtmlElement.nativeElement, this.capa);
   }
 
   private setImgStyles() {
     this.renderer.setStyle(this.img, 'position', 'absolute');
     this.renderer.setStyle(this.img, 'left', '0');
     this.renderer.setStyle(this.img, 'top', '0');
-    this.renderer.setStyle(this.img, 'height', '100vh');
+    this.renderer.setStyle(this.img, 'height', '100%');
+    this.renderer.setStyle(this.img, 'width', this.resizableHtmlElement.nativeElement.clientWidth + 'px');
     this.renderer.setStyle(this.img, 'object-fit', 'cover');
     this.renderer.setAttribute(this.img, 'src', this.imgSrc1);
     this.renderer.setAttribute(this.img, 'title', '');
@@ -89,31 +92,13 @@ export class NgxImageSplitterDirective implements OnInit {
   }
 
   private setSectionEventListeners() {
-    this.renderer.listen(
-      this.resizableHtmlElement.nativeElement,
-      'mousedown',
-      (event: MouseEvent) => this.mouseDown(event)
-    );
-
-    this.renderer.listen(
-      this.resizableHtmlElement.nativeElement,
-      'mouseup',
-      () => this.mouseUp()
-    );
+    this.renderer.listen(this.resizableHtmlElement.nativeElement, 'mousedown', (event: MouseEvent) => this.mouseDown(event));
+    this.renderer.listen(this.resizableHtmlElement.nativeElement, 'mouseup', () => this.mouseUp());
   }
 
   private setBtnEventListeners() {
-    this.renderer.listen(
-      this.resizableHtmlElement.nativeElement,
-      'mousedown',
-      () => this.btnMouseDown()
-    );
-
-    this.renderer.listen(
-      this.resizableHtmlElement.nativeElement,
-      'mouseup',
-      () => this.mouseUp()
-    );
+    this.renderer.listen(this.resizableHtmlElement.nativeElement, 'mousedown', () => this.btnMouseDown());
+    this.renderer.listen(this.resizableHtmlElement.nativeElement, 'mouseup', () => this.mouseUp());
   }
 
   @HostListener('mousemove', ['$event'])
@@ -186,40 +171,15 @@ export class NgxImageSplitterDirective implements OnInit {
   }
 
   private setParentBoxStyles() {
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'background-image',
-      `url('${this.imgSrc2}')`
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'background-repeat',
-      'no-repeat'
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'background-size',
-      'cover'
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'background-position',
-      'top'
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'transform',
-      'scale(1)'
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'overflow',
-      'hidden'
-    );
-    this.renderer.setStyle(
-      this.resizableHtmlElement.nativeElement,
-      'height',
-      '100vh'
-    );
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'background-image', `url('${this.imgSrc2}')`);
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'background-repeat', 'no-repeat');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'background-size', 'cover');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'background-position', 'top');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'transform', 'scale(1)');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'overflow', 'hidden');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'height', '100%');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'min-height', '900px');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'width', '100%');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'position', 'relative');
   }
 }
