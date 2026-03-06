@@ -1,13 +1,9 @@
 {
   "name": "ngx-caco-image-splitter",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "peerDependencies": {
     "@angular/common": ">=18.2.0",
     "@angular/core": ">=18.2.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/caco123/image-splitter"
   },
   "dependencies": {
     "tslib": "^2.3.0"
