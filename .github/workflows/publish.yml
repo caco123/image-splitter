@@ -31,4 +31,4 @@ jobs:
       - name: Publish to npm
         run: |
           cd dist/ngx-image-splitter
-          npm publish --provenance --access public
+          npm publish --provenance --access public --tag not-real
