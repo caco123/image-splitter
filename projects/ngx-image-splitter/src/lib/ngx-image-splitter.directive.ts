@@ -14,6 +14,7 @@ import {
 export class NgxImageSplitterDirective implements OnInit {
   @Input({ required: true }) imgSrc1!: string;
   @Input({ required: true }) imgSrc2!: string;
+  @Input() minHeight: number = 900;
 
   private resizableGrabWidth: number;
   private capa: HTMLDivElement;
@@ -82,6 +83,7 @@ export class NgxImageSplitterDirective implements OnInit {
 
   private setDivStyles() {
     this.renderer.setStyle(this.capa, 'height', '100%');
+    this.renderer.setStyle(this.capa, 'min-height', `${this.minHeight}px`);
     this.renderer.setStyle(this.capa, 'background-color', 'rgba(0, 0, 0, 0.5)');
     this.renderer.setStyle(this.capa, 'background-repeat', 'no-repeat');
     this.renderer.setStyle(this.capa, 'display', 'flex');
@@ -178,7 +180,7 @@ export class NgxImageSplitterDirective implements OnInit {
     this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'transform', 'scale(1)');
     this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'overflow', 'hidden');
     this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'height', '100%');
-    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'min-height', '900px');
+    this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'min-height', `${this.minHeight}px`);
     this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'width', '100%');
     this.renderer.setStyle(this.resizableHtmlElement.nativeElement, 'position', 'relative');
   }
